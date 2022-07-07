@@ -7,13 +7,13 @@ let input = content.split(whereSeparator: \.isNewline)
     .map { $0.map { Int($0) }.compactMap { $0 } }
 
 func hourglassSum(arr: [[Int]]) -> Int {
-    let indexes = [(0,0), (0,1), (0,2), (1,1), (2,0), (2,1), (2,2)]
+    let hourGlassIndices = [(0,0), (0,1), (0,2), (1,1), (2,0), (2,1), (2,2)]
     var sums = [Int]()
     
     for dr in 0...3 {
         for dc in 0...3 {
             var sum = 0
-            for i in indexes {
+            for i in hourGlassIndices {
                 sum += arr[i.0+dr][i.1+dc]
             }
             sums.append(sum)
